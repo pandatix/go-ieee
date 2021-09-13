@@ -18,7 +18,9 @@ func TestIntegrationGetFigures(t *testing.T) {
 			figrs, err := goieeeapi.GetFigures(client, id)
 
 			// Ensure no error
-			assert.Nil(err)
+			if !assert.Nil(err) {
+				t.Errorf("Last body [%s]\n", client.LastBody)
+			}
 
 			// Reencode to JSON
 			buf := &bytes.Buffer{}

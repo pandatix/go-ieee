@@ -18,7 +18,9 @@ func TestIntegrationGetMetrics(t *testing.T) {
 			mtrcs, err := goieeeapi.GetMetrics(client, id)
 
 			// Ensure no error
-			assert.Nil(err)
+			if !assert.Nil(err) {
+				t.Errorf("Last body [%s]\n", client.LastBody)
+			}
 
 			// Reencode to JSON
 			buf := &bytes.Buffer{}

@@ -18,7 +18,9 @@ func TestIntegrationGetReferences(t *testing.T) {
 			authors, err := goieeeapi.GetReferences(client, id)
 
 			// Ensure no error
-			assert.Nil(err)
+			if !assert.Nil(err) {
+				t.Errorf("Last body [%s]\n", client.LastBody)
+			}
 
 			// Reencode to JSON
 			buf := &bytes.Buffer{}
