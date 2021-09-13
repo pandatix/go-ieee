@@ -67,7 +67,7 @@ type GetReferencesResponse struct {
 type Reference struct {
 	Order             string     `json:"order"`
 	Text              *string    `json:"text,omitempty"`
-	DisplayText       *string    `json:"displayText"`
+	DisplayText       *string    `json:"displayText,omitempty"`
 	Title             string     `json:"title"`
 	Context           *[]Context `json:"context,omitempty"`
 	Links             *Links     `json:"links,omitempty"`

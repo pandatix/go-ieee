@@ -60,6 +60,7 @@ func getEndp(client HTTPClient, id int, endp string, dst interface{}) error {
 	// Issue the API call
 	url := fmt.Sprintf("https://ieeexplore.ieee.org/rest/document/%d/%s", id, endp)
 	req, _ := http.NewRequest(http.MethodGet, url, nil)
+	req.Header.Set("Referer", "https://ieeexplore.ieee.org")
 	res, err := client.Do(req)
 	if err != nil {
 		return err

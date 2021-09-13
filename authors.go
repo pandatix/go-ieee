@@ -60,8 +60,8 @@ type GetAuthorsResponse struct {
 type Author struct {
 	Name        string   `json:"name"`
 	Affiliation []string `json:"affiliation"`
-	RingGoldID  *string  `json:"ringgoldid,omitempty"`
-	FirstName   string   `json:"firstname"`
-	LastName    string   `json:"lastname"`
+	RingGoldID  *string  `json:"ringgoldId,omitempty"`
+	FirstName   string   `json:"firstName"`
+	LastName    string   `json:"lastName"`
 	ID          string   `json:"id"`
 }
