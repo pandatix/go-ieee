@@ -22,13 +22,13 @@ func TestIntegrationGetFootnotes(t *testing.T) {
 
 			// Reencode to JSON
 			buf := &bytes.Buffer{}
-			json.NewEncoder(buf).Encode(ftns)
+			_ = json.NewEncoder(buf).Encode(ftns)
 
 			// Decode both to interfaces
 			var expected interface{}
 			var actual interface{}
-			json.Unmarshal(client.LastBody, &expected)
-			json.Unmarshal(buf.Bytes(), &actual)
+			_ = json.Unmarshal(client.LastBody, &expected)
+			_ = json.Unmarshal(buf.Bytes(), &actual)
 
 			// Compares both to check valid API (and not nil)
 			assert.NotNil(expected)

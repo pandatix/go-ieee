@@ -82,7 +82,7 @@ jobs:
             platform: ubuntu-latest
             update-coverage: true
     runs-on: ${{ matrix.platform }}
-    needs: [unit-tests, go-lint]
+    needs: [unit-tests]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
