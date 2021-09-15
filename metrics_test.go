@@ -116,7 +116,7 @@ func TestGetMetrics(t *testing.T) {
 							Dec:                      "5",
 						},
 					},
-					DOI: "10.1109/IGARSS.2019.8900441",
+					DOI: str("10.1109/IGARSS.2019.8900441"),
 				},
 				GetProgramTermsAccepted:  false,
 				AllowComments:            false,

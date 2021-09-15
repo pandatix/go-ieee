@@ -48,7 +48,11 @@ type Metrics struct {
 	CitationCountPatent int      `json:"citationCountPatent"`
 	TotalDownloads      int      `json:"totalDownloads"`
 	Biblio              []Biblio `json:"biblio"`
-	DOI                 string   `json:"doi"`
+	DOI                 *string  `json:"doi,omitempty"`
+	WosCount            *string  `json:"wos_count,omitempty"`
+	WosURL              *string  `json:"wos_url,omitempty"`
+	ScopusCount         *string  `json:"scopus_count,omitempty"`
+	ScopusURL           *string  `json:"scopus_url,omitempty"`
 }
 
 type Biblio struct {

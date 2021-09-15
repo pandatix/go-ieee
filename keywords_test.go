@@ -75,11 +75,11 @@ func TestGetKeywords(t *testing.T) {
 				},
 				ArticleNumber:               "8900441",
 				GetProgramTermsAccepted:     false,
-				FormulaStrippedArticleTitle: "Deep Learning Solutions for Tandem-X-Based Forest Classification",
-				PubLink:                     "/xpl/conhome/8891871/proceeding",
-				Keywords: []goieeeapi.Keyword{
+				FormulaStrippedArticleTitle: str("Deep Learning Solutions for Tandem-X-Based Forest Classification"),
+				PubLink:                     str("/xpl/conhome/8891871/proceeding"),
+				Keywords: &[]goieeeapi.Keyword{
 					{
-						Type: "IEEE Keywords",
+						Type: str("IEEE Keywords"),
 						Kwd: []string{
 							"Forestry",
 							"Training",
@@ -90,7 +90,7 @@ func TestGetKeywords(t *testing.T) {
 							"Task analysis",
 						},
 					}, {
-						Type: "INSPEC: Controlled Indexing",
+						Type: str("INSPEC: Controlled Indexing"),
 						Kwd: []string{
 							"computer vision",
 							"forestry",
@@ -101,7 +101,7 @@ func TestGetKeywords(t *testing.T) {
 							"remote sensing",
 						},
 					}, {
-						Type: "INSPEC: Non-Controlled Indexing",
+						Type: str("INSPEC: Non-Controlled Indexing"),
 						Kwd: []string{
 							"deep learning solutions",
 							"tandem-X-based forest classification",
@@ -119,7 +119,7 @@ func TestGetKeywords(t *testing.T) {
 							"forest classification problem",
 						},
 					}, {
-						Type: "Author Keywords ",
+						Type: str("Author Keywords "),
 						Kwd: []string{
 							"Deep Learning",
 							"Convolutional Neural Network (CNN)",
@@ -135,8 +135,8 @@ func TestGetKeywords(t *testing.T) {
 				IsGetArticle:             false,
 				IsGetAddressInfoCaptured: false,
 				IsMarketingOptIn:         false,
-				Publisher:                "IEEE",
-				XploreDocumentType:       "Conference Publication",
+				Publisher:                str("IEEE"),
+				XploreDocumentType:       str("Conference Publication"),
 				IsPromo:                  false,
 				IsNotDynamicOrStatic:     true,
 				HTMLAbstractLink:         "/document/8900441/",
@@ -144,7 +144,7 @@ func TestGetKeywords(t *testing.T) {
 				IsSAE:                    false,
 				IsDynamicHTML:            false,
 				IsFreeDocument:           false,
-				DisplayDocTitle:          "Deep Learning Solutions for Tandem-X-Based Forest Classification",
+				DisplayDocTitle:          str("Deep Learning Solutions for Tandem-X-Based Forest Classification"),
 				IsStandard:               false,
 				IsSMPTE:                  false,
 				IsOUP:                    false,
@@ -160,14 +160,14 @@ func TestGetKeywords(t *testing.T) {
 				IsChapter:                false,
 				IsStaticHTML:             false,
 				IsEarlyAccess:            false,
-				PersistentLink:           "https://ieeexplore.ieee.org/servlet/opac?punumber=8891871",
-				Title:                    "Deep Learning Solutions for Tandem-X-Based Forest Classification",
-				ContentTypeDisplay:       "Conferences",
+				PersistentLink:           str("https://ieeexplore.ieee.org/servlet/opac?punumber=8891871"),
+				Title:                    str("Deep Learning Solutions for Tandem-X-Based Forest Classification"),
+				ContentTypeDisplay:       str("Conferences"),
 				MlTime:                   "PT0.017138S",
-				LastUpdate:               "2021-08-21",
-				MediaPath:                "/mediastore_new/IEEE/content/media/8891871/8897702/8900441",
-				ContentType:              "conferences",
-				PublicationNumber:        "8891871",
+				LastUpdate:               str("2021-08-21"),
+				MediaPath:                str("/mediastore_new/IEEE/content/media/8891871/8897702/8900441"),
+				ContentType:              str("conferences"),
+				PublicationNumber:        str("8891871"),
 			},
 			ExpectedErr: nil,
 		},
