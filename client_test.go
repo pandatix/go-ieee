@@ -130,3 +130,11 @@ func newFakeReadCloser(str string) *fakeReadCloser {
 func str(str string) *string {
 	return &str
 }
+
+func b(b bool) *bool {
+	return &b
+}
+
+func i(i int) *int {
+	return &i
+}

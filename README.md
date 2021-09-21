@@ -6,16 +6,17 @@
 [![CI](https://github.com/PandatiX/go-ieee-api/actions/workflows/ci.yaml/badge.svg)](https://github.com/PandatiX/go-ieee-api/actions?query=workflow%3Aci+)
 
 Go IEEE API wraps the REST IEEE API, for the following endpoints:
- - abstract
- - authors
- - citations
- - disclaimer
- - figures
- - footnotes
- - keywords
- - metrics
- - multimedia
- - references
+ - search
+ - document/abstract
+ - document/authors
+ - document/citations
+ - document/disclaimer
+ - document/figures
+ - document/footnotes
+ - document/keywords
+ - document/metrics
+ - document/multimedia
+ - document/references
 
 ## How to use
 
