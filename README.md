@@ -17,6 +17,7 @@ Go IEEE API wraps the REST IEEE API, for the following endpoints:
  - document/metrics
  - document/multimedia
  - document/references
+ - document/similar
 
 ## How to use
 
