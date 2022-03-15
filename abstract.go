@@ -22,6 +22,7 @@ type GetAbstractResponse struct {
 	Keywords                    *[]Keyword         `json:"keywords,omitempty"`
 	PubLink                     *string            `json:"pubLink,omitempty"`
 	AllowComments               bool               `json:"allowComments"`
+	ArticleCopyright            *string            `json:"articleCopyRight,omitempty"`
 	Abstract                    *string            `json:"abstract,omitempty"`
 	DOI                         *string            `json:"doi,omitempty"`
 	DOILink                     *string            `json:"doiLink,omitempty"`
@@ -139,9 +140,9 @@ type FundingAgency struct {
 }
 
 type GraphicalAbstract struct {
-	CoverImage string `json:"coverImage"`
-	File       string `json:"file"`
-	FileSize   string `json:"fileSize"`
-	Summary    string `json:"summary"`
-	Type       string `json:"type"`
+	CoverImage *string `json:"coverImage,omitempty"`
+	File       *string `json:"file,omitempty"`
+	FileSize   *string `json:"fileSize,omitempty"`
+	Summary    *string `json:"summary,omitempty"`
+	Type       *string `json:"type,omitempty"`
 }
