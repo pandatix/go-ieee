@@ -2,7 +2,7 @@ package goieeeapi
 
 func GetFigures(client HTTPClient, id int) (*GetFiguresResponse, error) {
 	resp := &GetFiguresResponse{}
-	err := getEndp(client, id, "figures", resp)
+	err := getEndp(client, id, "figures", nil, resp)
 	if err != nil {
 		return nil, err
 	}

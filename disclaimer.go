@@ -2,7 +2,7 @@ package goieeeapi
 
 func GetDisclaimer(client HTTPClient, id int) (*GetDisclaimerResponse, error) {
 	resp := &GetDisclaimerResponse{}
-	err := getEndp(client, id, "disclaimer", resp)
+	err := getEndp(client, id, "disclaimer", nil, resp)
 	if err != nil {
 		return nil, err
 	}

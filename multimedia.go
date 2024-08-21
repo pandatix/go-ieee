@@ -2,7 +2,7 @@ package goieeeapi
 
 func GetMultimedia(client HTTPClient, id int) (*GetMultimediaResponse, error) {
 	resp := &GetMultimediaResponse{}
-	err := getEndp(client, id, "multimedia", resp)
+	err := getEndp(client, id, "multimedia", nil, resp)
 	if err != nil {
 		return nil, err
 	}

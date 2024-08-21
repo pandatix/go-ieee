@@ -2,7 +2,7 @@ package goieeeapi
 
 func GetSimilar(client HTTPClient, id int) (*GetSimilarResponse, error) {
 	resp := &GetSimilarResponse{}
-	err := getEndp(client, id, "similar", resp)
+	err := getEndp(client, id, "similar", nil, resp)
 	if err != nil {
 		return nil, err
 	}

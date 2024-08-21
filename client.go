@@ -6,6 +6,9 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
+
+	"github.com/gorilla/schema"
 )
 
 var (
@@ -53,15 +56,26 @@ func (e ErrUnexpectedStatus) Error() string {
 
 var _ error = (*ErrUnexpectedStatus)(nil)
 
-func getEndp(client HTTPClient, id int, endp string, dst interface{}) error {
+func getEndp(client HTTPClient, id int, endp string, params, dst any) error {
 	if client == nil {
 		return ErrNilClient
 	}
 
-	// Issue the API call
-	url := fmt.Sprintf("https://ieeexplore.ieee.org/rest/document/%d/%s", id, endp)
-	req, _ := http.NewRequest(http.MethodGet, url, nil)
+	// Build the API call
+	tgt := fmt.Sprintf("https://ieeexplore.ieee.org/rest/document/%d/%s", id, endp)
+	req, _ := http.NewRequest(http.MethodGet, tgt, nil)
 	req.Header.Set("Referer", "https://ieeexplore.ieee.org")
+
+	// Encode URL parameters if any
+	if params != nil {
+		values := url.Values{}
+		if err := schema.NewEncoder().Encode(params, values); err != nil {
+			return err
+		}
+		req.URL.RawQuery = values.Encode()
+	}
+
+	// Issue call
 	res, err := client.Do(req)
 	if err != nil {
 		return err

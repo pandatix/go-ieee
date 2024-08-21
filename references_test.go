@@ -435,7 +435,7 @@ func TestGetReferences(t *testing.T) {
 
 	for testname, tt := range tests {
 		t.Run(testname, func(t *testing.T) {
-			refs, err := goieeeapi.GetReferences(tt.Client, tt.ID)
+			refs, err := goieeeapi.GetReferences(tt.Client, tt.ID, nil)
 
 			if !reflect.DeepEqual(refs, tt.ExpectedReferences) {
 				t.Errorf("Failed to get expected references: got \"%v\" instead of \"%v\".", refs, tt.ExpectedReferences)

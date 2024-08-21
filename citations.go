@@ -2,7 +2,7 @@ package goieeeapi
 
 func GetCitations(client HTTPClient, id int) (*GetCitationsResponse, error) {
 	resp := &GetCitationsResponse{}
-	err := getEndp(client, id, "citations", resp)
+	err := getEndp(client, id, "citations", nil, resp)
 	if err != nil {
 		return nil, err
 	}

@@ -2,7 +2,7 @@ package goieeeapi
 
 func GetAuthors(client HTTPClient, id int) (*GetAuthorsResponse, error) {
 	resp := &GetAuthorsResponse{}
-	err := getEndp(client, id, "authors", resp)
+	err := getEndp(client, id, "authors", nil, resp)
 	if err != nil {
 		return nil, err
 	}

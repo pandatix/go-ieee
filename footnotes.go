@@ -2,7 +2,7 @@ package goieeeapi
 
 func GetFootnotes(client HTTPClient, id int) (*GetFootnotesResponse, error) {
 	resp := &GetFootnotesResponse{}
-	err := getEndp(client, id, "footnotes", resp)
+	err := getEndp(client, id, "footnotes", nil, resp)
 	if err != nil {
 		return nil, err
 	}

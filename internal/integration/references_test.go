@@ -15,7 +15,7 @@ func TestIntegrationGetReferences(t *testing.T) {
 			assert := assert.New(t)
 
 			client := &MdwClient{}
-			authors, err := goieeeapi.GetReferences(client, id)
+			authors, err := goieeeapi.GetReferences(client, id, nil)
 
 			// Ensure no error
 			if !assert.Nil(err) {

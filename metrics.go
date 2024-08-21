@@ -2,7 +2,7 @@ package goieeeapi
 
 func GetMetrics(client HTTPClient, id int) (*GetMetricsResponse, error) {
 	resp := &GetMetricsResponse{}
-	err := getEndp(client, id, "metrics", resp)
+	err := getEndp(client, id, "metrics", nil, resp)
 	if err != nil {
 		return nil, err
 	}

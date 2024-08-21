@@ -2,7 +2,7 @@ package goieeeapi
 
 func GetKeywords(client HTTPClient, id int) (*GetKeywordsResponse, error) {
 	resp := &GetKeywordsResponse{}
-	err := getEndp(client, id, "keywords", resp)
+	err := getEndp(client, id, "keywords", nil, resp)
 	if err != nil {
 		return nil, err
 	}

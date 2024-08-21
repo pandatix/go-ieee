@@ -2,7 +2,7 @@ package goieeeapi
 
 func GetAbstract(client HTTPClient, id int) (*GetAbstractResponse, error) {
 	resp := &GetAbstractResponse{}
-	err := getEndp(client, id, "abstract", resp)
+	err := getEndp(client, id, "abstract", nil, resp)
 	if err != nil {
 		return nil, err
 	}

@@ -1,12 +1,28 @@
 package goieeeapi
 
-func GetReferences(client HTTPClient, id int) (*GetReferencesResponse, error) {
+import (
+	"net/url"
+
+	"github.com/gorilla/schema"
+)
+
+func GetReferences(client HTTPClient, id int, params *GetReferencesParams) (*GetReferencesResponse, error) {
 	resp := &GetReferencesResponse{}
-	err := getEndp(client, id, "references", resp)
+	values := url.Values{}
+	if err := schema.NewEncoder().Encode(params, values); err != nil {
+		return nil, err
+	}
+
+	err := getEndp(client, id, "references", nil, resp)
 	if err != nil {
 		return nil, err
 	}
 	return resp, nil
+}
+
+type GetReferencesParams struct {
+	Start *int `schema:"start,omitempty"`
+	End   *int `schema:"end,omitempty"`
 }
 
 type GetReferencesResponse struct {
