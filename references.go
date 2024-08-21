@@ -106,6 +106,7 @@ type Links struct {
 	PdfLink       *string `json:"pdfLink,omitempty"`
 	Abstract      *string `json:"abstract,omitempty"`
 	CrossRefLink  *string `json:"crossRefLink,omitempty"`
+	ArticleNumber *string `json:"articleNumber,omitempty"`
 	OpenURLImgLoc string  `json:"openUrlImgLoc"`
 	PdfSize       *string `json:"pdfSize,omitempty"`
 }
