@@ -57,6 +57,8 @@ type PostSearchParams struct {
 	Refinements  *[]string `json:"refinements,omitempty"`
 	ReturnFacets []string  `json:"returnFacets"`
 	ReturnType   string    `json:"returnType"`
+	PageNumber   *string   `json:"pageNumber,omitempty"`
+	RowsPerPage  *string   `json:"rowsPerPage,omitempty"`
 }
 
 type PostSearchResponse struct {
