@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/pandatix/go-ieee/api"
+	"github.com/pandatix/go-ieee/v2/api"
 )
 
 const docID = 5070278

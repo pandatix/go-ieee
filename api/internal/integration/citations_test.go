@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/pandatix/go-ieee/api"
+	"github.com/pandatix/go-ieee/v2/api"
 	"github.com/stretchr/testify/assert"
 )
 

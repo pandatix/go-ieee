@@ -4,7 +4,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/pandatix/go-ieee/api"
+	"github.com/pandatix/go-ieee/v2/api"
 )
 
 type MdwClient struct {

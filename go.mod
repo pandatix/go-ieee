@@ -1,4 +1,4 @@
-module github.com/pandatix/go-ieee
+module github.com/pandatix/go-ieee/v2
 
 go 1.22.4
 

@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/pandatix/go-ieee/api"
+	"github.com/pandatix/go-ieee/v2/api"
 )
 
 func main() {

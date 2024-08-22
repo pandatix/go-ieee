@@ -2,7 +2,7 @@ module github.com/pandatix/go-ieee/examples/citations
 
 go 1.22.4
 
-replace github.com/pandatix/go-ieee => ../..
+replace github.com/pandatix/go-ieee/v2 => ../..
 
 require github.com/pandatix/go-ieee v0.0.0-00010101000000-000000000000
 
