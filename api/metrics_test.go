@@ -1,4 +1,4 @@
-package integration_test
+package api_test
 
 import (
 	"bytes"
@@ -9,14 +9,14 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_I_GetDocumentCitations(t *testing.T) {
+func Test_I_GetDocumentMetrics(t *testing.T) {
 	for testname, id := range tests {
 		t.Run(testname, func(t *testing.T) {
 			assert := assert.New(t)
 
 			mdw := &MdwClient{}
 			client, _ := api.NewIEEEClient(mdw)
-			cts, err := client.GetDocumentCitations(id)
+			mtrcs, err := client.GetDocumentMetrics(id)
 
 			// Ensure no error
 			if !assert.Nil(err) {
@@ -25,7 +25,7 @@ func Test_I_GetDocumentCitations(t *testing.T) {
 
 			// Reencode to JSON
 			buf := &bytes.Buffer{}
-			_ = json.NewEncoder(buf).Encode(cts)
+			_ = json.NewEncoder(buf).Encode(mtrcs)
 
 			// Decode both to interfaces
 			var expected interface{}

@@ -1,4 +1,4 @@
-package integration_test
+package api_test
 
 import (
 	"bytes"
@@ -9,14 +9,14 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_I_GetDocumentDisclaimer(t *testing.T) {
+func Test_I_GetDocumentSimilar(t *testing.T) {
 	for testname, id := range tests {
 		t.Run(testname, func(t *testing.T) {
 			assert := assert.New(t)
 
 			mdw := &MdwClient{}
 			client, _ := api.NewIEEEClient(mdw)
-			disc, err := client.GetDocumentDisclaimer(id)
+			sim, err := client.GetDocumentSimilar(id)
 
 			// Ensure no error
 			if !assert.Nil(err) {
@@ -25,7 +25,7 @@ func Test_I_GetDocumentDisclaimer(t *testing.T) {
 
 			// Reencode to JSON
 			buf := &bytes.Buffer{}
-			_ = json.NewEncoder(buf).Encode(disc)
+			_ = json.NewEncoder(buf).Encode(sim)
 
 			// Decode both to interfaces
 			var expected interface{}
