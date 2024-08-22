@@ -7,8 +7,8 @@ import (
 
 // GetDocumentAbstract fetch the /document/<id>/abstract REST endpoint and
 // returns the document abstract information.
-func (client *IEEEClient) GetDocumentAbstract(id int, opts ...Option) (*GetAbstractResponse, error) {
-	resp := &GetAbstractResponse{}
+func (client *IEEEClient) GetDocumentAbstract(id int, opts ...Option) (*GetDocumentAbstractResponse, error) {
+	resp := &GetDocumentAbstractResponse{}
 	err := client.get(path.Join("document", strconv.Itoa(id), "abstract"), nil, resp, opts...)
 	if err != nil {
 		return nil, err
@@ -16,7 +16,7 @@ func (client *IEEEClient) GetDocumentAbstract(id int, opts ...Option) (*GetAbstr
 	return resp, nil
 }
 
-type GetAbstractResponse struct {
+type GetDocumentAbstractResponse struct {
 	UserInfo                    UserInfo           `json:"userInfo"`
 	Authors                     []Author           `json:"authors,omitempty"`
 	ISBN                        []ISBN             `json:"isbn,omitempty"`

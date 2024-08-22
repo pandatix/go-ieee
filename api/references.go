@@ -7,7 +7,7 @@ import (
 
 // GetDocumentReferences fetch the /document/<id>/references REST endpoint and
 // returns the document references information.
-func (client *IEEEClient) GetDocumentReferences(id int, params *GetReferencesParams, opts ...Option) (*GetReferencesResponse, error) {
+func (client *IEEEClient) GetDocumentReferences(id int, params *GetDocumentReferencesParams, opts ...Option) (*GetReferencesResponse, error) {
 	resp := &GetReferencesResponse{}
 	err := client.get(path.Join("document", strconv.Itoa(id), "references"), params, resp, opts...)
 	if err != nil {
@@ -16,7 +16,7 @@ func (client *IEEEClient) GetDocumentReferences(id int, params *GetReferencesPar
 	return resp, nil
 }
 
-type GetReferencesParams struct {
+type GetDocumentReferencesParams struct {
 	Start *int `schema:"start,omitempty"`
 	End   *int `schema:"end,omitempty"`
 }

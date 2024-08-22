@@ -7,8 +7,8 @@ import (
 
 // GetDocumentKeywords fetch the /document/<id>/keywords REST endpoint and
 // returns the document keywords information.
-func (client *IEEEClient) GetDocumentKeywords(id int, opts ...Option) (*GetKeywordsResponse, error) {
-	resp := &GetKeywordsResponse{}
+func (client *IEEEClient) GetDocumentKeywords(id int, opts ...Option) (*GetDocumentKeywordsResponse, error) {
+	resp := &GetDocumentKeywordsResponse{}
 	err := client.get(path.Join("document", strconv.Itoa(id), "keywords"), nil, resp, opts...)
 	if err != nil {
 		return nil, err
@@ -16,7 +16,7 @@ func (client *IEEEClient) GetDocumentKeywords(id int, opts ...Option) (*GetKeywo
 	return resp, nil
 }
 
-type GetKeywordsResponse struct {
+type GetDocumentKeywordsResponse struct {
 	UserInfo                    UserInfo  `json:"userInfo"`
 	ArticleNumber               string    `json:"articleNumber"`
 	GetProgramTermsAccepted     bool      `json:"getProgramTermsAccepted"`

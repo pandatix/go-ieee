@@ -7,8 +7,8 @@ import (
 
 // GetDocumentMultimedia fetch the /document/<id>/mutimedia REST endpoint and
 // returns the document mutimedia information.
-func (client *IEEEClient) GetDocumentMultimedia(id int, opts ...Option) (*GetMultimediaResponse, error) {
-	resp := &GetMultimediaResponse{}
+func (client *IEEEClient) GetDocumentMultimedia(id int, opts ...Option) (*GetDocumentMultimediaResponse, error) {
+	resp := &GetDocumentMultimediaResponse{}
 	err := client.get(path.Join("document", strconv.Itoa(id), "multimedia"), nil, resp, opts...)
 	if err != nil {
 		return nil, err
@@ -16,7 +16,7 @@ func (client *IEEEClient) GetDocumentMultimedia(id int, opts ...Option) (*GetMul
 	return resp, nil
 }
 
-type GetMultimediaResponse struct {
+type GetDocumentMultimediaResponse struct {
 	UserInfo                    UserInfo `json:"userInfo"`
 	ArticleNumber               string   `json:"articleNumber"`
 	GetProgramTermsAccepted     bool     `json:"getProgramTermsAccepted"`

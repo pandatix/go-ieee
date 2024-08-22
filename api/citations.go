@@ -7,8 +7,8 @@ import (
 
 // GetDocumentCitations fetch the /document/<id>/citations REST endpoint and
 // returns the document citations information.
-func (client *IEEEClient) GetDocumentCitations(id int, opts ...Option) (*GetCitationsResponse, error) {
-	resp := &GetCitationsResponse{}
+func (client *IEEEClient) GetDocumentCitations(id int, opts ...Option) (*GetDocumentCitationsResponse, error) {
+	resp := &GetDocumentCitationsResponse{}
 	err := client.get(path.Join("document", strconv.Itoa(id), "citations"), nil, resp, opts...)
 	if err != nil {
 		return nil, err
@@ -16,7 +16,7 @@ func (client *IEEEClient) GetDocumentCitations(id int, opts ...Option) (*GetCita
 	return resp, nil
 }
 
-type GetCitationsResponse struct {
+type GetDocumentCitationsResponse struct {
 	GetProgramTermsAccepted     bool             `json:"getProgramTermsAccepted"`
 	FormulaStrippedArticleTitle *string          `json:"formulaStrippedArticleTitle,omitempty"`
 	PaperCitations              *PaperCitations  `json:"paperCitations,omitempty"`

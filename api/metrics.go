@@ -7,8 +7,8 @@ import (
 
 // GetDocumentMetrics fetch the /document/<id>/metrics REST endpoint and
 // returns the document metrics information.
-func (client *IEEEClient) GetDocumentMetrics(id int, opts ...Option) (*GetMetricsResponse, error) {
-	resp := &GetMetricsResponse{}
+func (client *IEEEClient) GetDocumentMetrics(id int, opts ...Option) (*GetDocumentMetricsResponse, error) {
+	resp := &GetDocumentMetricsResponse{}
 	err := client.get(path.Join("document", strconv.Itoa(id), "metrics"), nil, resp, opts...)
 	if err != nil {
 		return nil, err
@@ -16,7 +16,7 @@ func (client *IEEEClient) GetDocumentMetrics(id int, opts ...Option) (*GetMetric
 	return resp, nil
 }
 
-type GetMetricsResponse struct {
+type GetDocumentMetricsResponse struct {
 	ArticleNumber            string  `json:"articleNumber"`
 	Metrics                  Metrics `json:"metrics"`
 	GetProgramTermsAccepted  bool    `json:"getProgramTermsAccepted"`

@@ -7,8 +7,8 @@ import (
 
 // GetDocumentFigures fetch the /document/<id>/figures REST endpoint and
 // returns the document figures information.
-func (client *IEEEClient) GetDocumentFigures(id int, opts ...Option) (*GetFiguresResponse, error) {
-	resp := &GetFiguresResponse{}
+func (client *IEEEClient) GetDocumentFigures(id int, opts ...Option) (*GetDocumentFiguresResponse, error) {
+	resp := &GetDocumentFiguresResponse{}
 	err := client.get(path.Join("document", strconv.Itoa(id), "figures"), nil, resp, opts...)
 	if err != nil {
 		return nil, err
@@ -16,7 +16,7 @@ func (client *IEEEClient) GetDocumentFigures(id int, opts ...Option) (*GetFigure
 	return resp, nil
 }
 
-type GetFiguresResponse struct {
+type GetDocumentFiguresResponse struct {
 	UserInfo                    UserInfo `json:"userInfo"`
 	Figures                     []Figure `json:"figures,omitempty"`
 	ArticleNumber               string   `json:"articleNumber"`

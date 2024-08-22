@@ -7,8 +7,8 @@ import (
 
 // GetDocumentAuthors fetch the /document/<id>/authors REST endpoint and
 // returns the document authors information.
-func (client *IEEEClient) GetDocumentAuthors(id int, opts ...Option) (*GetAuthorsResponse, error) {
-	resp := &GetAuthorsResponse{}
+func (client *IEEEClient) GetDocumentAuthors(id int, opts ...Option) (*GetDocumentAuthorsResponse, error) {
+	resp := &GetDocumentAuthorsResponse{}
 	err := client.get(path.Join("document", strconv.Itoa(id), "authors"), nil, resp, opts...)
 	if err != nil {
 		return nil, err
@@ -16,7 +16,7 @@ func (client *IEEEClient) GetDocumentAuthors(id int, opts ...Option) (*GetAuthor
 	return resp, nil
 }
 
-type GetAuthorsResponse struct {
+type GetDocumentAuthorsResponse struct {
 	UserInfo                    UserInfo `json:"userInfo"`
 	Authors                     []Author `json:"authors,omitempty"`
 	ArticleNumber               string   `json:"articleNumber"`

@@ -16,7 +16,7 @@ func Test_I_GetDocumentReferences(t *testing.T) {
 
 			mdw := &MdwClient{}
 			client, _ := api.NewIEEEClient(mdw)
-			authors, err := client.GetDocumentReferences(id, &api.GetReferencesParams{})
+			authors, err := client.GetDocumentReferences(id, &api.GetDocumentReferencesParams{})
 
 			// Ensure no error
 			if !assert.Nil(err) {

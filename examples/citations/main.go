@@ -24,7 +24,7 @@ func main() {
 	defer cancel()
 
 	// The we issue our document references request.
-	res, err := client.GetDocumentReferences(docID, &api.GetReferencesParams{
+	res, err := client.GetDocumentReferences(docID, &api.GetDocumentReferencesParams{
 		// No parameters needed here...
 	}, api.WithContext(ctx))
 	if err != nil {

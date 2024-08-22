@@ -7,8 +7,8 @@ import (
 
 // GetDocumentDisclaimer fetch the /document/<id>/disclaimer REST endpoint and
 // returns the document disclaimer information.
-func (client *IEEEClient) GetDocumentDisclaimer(id int, opts ...Option) (*GetDisclaimerResponse, error) {
-	resp := &GetDisclaimerResponse{}
+func (client *IEEEClient) GetDocumentDisclaimer(id int, opts ...Option) (*GetDocumentDisclaimerResponse, error) {
+	resp := &GetDocumentDisclaimerResponse{}
 	err := client.get(path.Join("document", strconv.Itoa(id), "disclaimer"), nil, resp, opts...)
 	if err != nil {
 		return nil, err
@@ -16,7 +16,7 @@ func (client *IEEEClient) GetDocumentDisclaimer(id int, opts ...Option) (*GetDis
 	return resp, nil
 }
 
-type GetDisclaimerResponse struct {
+type GetDocumentDisclaimerResponse struct {
 	UserInfo                    UserInfo `json:"userInfo"`
 	ArticleNumber               string   `json:"articleNumber"`
 	GetProgramTermsAccepted     bool     `json:"getProgramTermsAccepted"`

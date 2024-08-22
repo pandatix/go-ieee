@@ -7,8 +7,8 @@ import (
 
 // GetDocumentSimilar fetch the /document/<id>/similar REST endpoint and
 // returns the document similar information.
-func (client *IEEEClient) GetDocumentSimilar(id int, opts ...Option) (*GetSimilarResponse, error) {
-	resp := &GetSimilarResponse{}
+func (client *IEEEClient) GetDocumentSimilar(id int, opts ...Option) (*GetDocumentSimilarResponse, error) {
+	resp := &GetDocumentSimilarResponse{}
 	err := client.get(path.Join("document", strconv.Itoa(id), "similar"), nil, resp)
 	if err != nil {
 		return nil, err
@@ -16,7 +16,7 @@ func (client *IEEEClient) GetDocumentSimilar(id int, opts ...Option) (*GetSimila
 	return resp, nil
 }
 
-type GetSimilarResponse struct {
+type GetDocumentSimilarResponse struct {
 	GetProgramTermsAccepted     bool      `json:"getProgramTermsAccepted"`
 	Similar                     []Similar `json:"similar,omitempty"`
 	FormulaStrippedArticleTitle *string   `json:"formulaStrippedArticleTitle,omitempty"`

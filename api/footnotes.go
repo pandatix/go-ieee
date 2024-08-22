@@ -7,8 +7,8 @@ import (
 
 // GetDocumentFootnotes fetch the /document/<id>/footnotes REST endpoint and
 // returns the document footnotes information.
-func (client *IEEEClient) GetDocumentFootnotes(id int, opts ...Option) (*GetFootnotesResponse, error) {
-	resp := &GetFootnotesResponse{}
+func (client *IEEEClient) GetDocumentFootnotes(id int, opts ...Option) (*GetDocumentFootnotesResponse, error) {
+	resp := &GetDocumentFootnotesResponse{}
 	err := client.get(path.Join("document", strconv.Itoa(id), "footnotes"), nil, resp, opts...)
 	if err != nil {
 		return nil, err
@@ -16,7 +16,7 @@ func (client *IEEEClient) GetDocumentFootnotes(id int, opts ...Option) (*GetFoot
 	return resp, nil
 }
 
-type GetFootnotesResponse struct {
+type GetDocumentFootnotesResponse struct {
 	UserInfo                    UserInfo   `json:"userInfo"`
 	ArticleNumber               string     `json:"articleNumber"`
 	GetProgramTermsAccepted     bool       `json:"getProgramTermsAccepted"`
