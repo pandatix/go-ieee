@@ -13,6 +13,7 @@
 
 Go-IEEE API wraps the IEEExplore REST API, for the following methods/endpoints:
  - POST `search`
+ - GET `author`
  - GET `document/abstract`
  - GET `document/authors`
  - GET `document/citations`

@@ -5,6 +5,51 @@ import (
 	"strconv"
 )
 
+// GetAuthor fetch the /author/<id> REST endpoint and returns the authors
+// information.
+func (client *IEEEClient) GetAuthor(id int, opts ...Option) ([]*GetAuthorResponse, error) {
+	resp := []*GetAuthorResponse{}
+	if err := client.get(path.Join("author", strconv.Itoa(id)), nil, &resp, opts...); err != nil {
+		return nil, err
+	}
+	return resp, nil
+}
+
+type GetAuthorResponse struct {
+	ID                  int                  `json:"id"`
+	PreferredName       string               `json:"preferredName"`
+	FirstName           string               `json:"firstName"`
+	LastName            string               `json:"lastName"`
+	Aliases             []string             `json:"aliases,omitempty"`
+	CurrentAffiliations []string             `json:"currentAffiliations,omitempty"`
+	BioParagraphs       []string             `json:"bioParagraphs,omitempty"`
+	CoAuthors           []*GetAuthorResponse `json:"coAuthors,omitempty"`
+	PhotoURL            *string              `json:"photoUrl,omitempty"`
+	ArticleCount        *int                 `json:"articleCount,omitempty"`
+	FirstPublishedYear  *int                 `json:"firstPublishedYear,omitempty"`
+	LastPublishedYear   *int                 `json:"lastPublishedYear,omitempty"`
+	BiographyDate       *string              `json:"biographyDate,omitempty"`
+	BiographySource     *string              `json:"biographySource,omitempty"`
+	PublicationYears    []PublicationYear    `json:"publicationYears,omitempty"`
+	Topics              []Topic              `json:"topics,omitempty"`
+	Citations           *string              `json:"citations,omitempty"`
+	IDStr               string               `json:"idStr"`
+	AliasesToString     *string              `json:"aliasesToString,omitempty"`
+	TopicCsv            *string              `json:"topicCsv,omitempty"`
+	IsHideProfile       bool                 `json:"isHideProfile"`
+}
+
+type PublicationYear struct {
+	ID         string `json:"id"`
+	Name       string `json:"name"`
+	NumRecords int    `json:"numRecords"`
+}
+
+type Topic struct {
+	Name       string `json:"name"`
+	NumRecords int    `json:"numRecords"`
+}
+
 // GetDocumentAuthors fetch the /document/<id>/authors REST endpoint and
 // returns the document authors information.
 func (client *IEEEClient) GetDocumentAuthors(id int, opts ...Option) (*GetDocumentAuthorsResponse, error) {
