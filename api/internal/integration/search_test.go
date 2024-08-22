@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestIntegrationPostSearch(t *testing.T) {
+func Test_I_PostSearch(t *testing.T) {
 	var tests = map[string]struct {
 		Params *api.PostSearchParams
 	}{
