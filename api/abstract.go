@@ -18,15 +18,16 @@ func (client *IEEEClient) GetDocumentAbstract(id int, opts ...Option) (*GetAbstr
 
 type GetAbstractResponse struct {
 	UserInfo                    UserInfo           `json:"userInfo"`
-	Authors                     *[]Author          `json:"authors,omitempty"`
-	ISBN                        *[]ISBN            `json:"isbn,omitempty"`
-	ISSN                        *[]ISSN            `json:"issn,omitempty"`
+	Authors                     []Author           `json:"authors,omitempty"`
+	ISBN                        []ISBN             `json:"isbn,omitempty"`
+	ISSN                        []ISSN             `json:"issn,omitempty"`
 	ArticleNumber               string             `json:"articleNumber"`
+	AuthorNames                 *string            `json:"authorNames,omitempty"`
 	GetProgramTermsAccepted     bool               `json:"getProgramTermsAccepted"`
 	GraphicalAbstract           *GraphicalAbstract `json:"graphicalAbstract,omitempty"`
 	Sections                    *Sections          `json:"sections,omitempty"`
 	PdfURL                      *string            `json:"pdfUrl,omitempty"`
-	Keywords                    *[]Keyword         `json:"keywords,omitempty"`
+	Keywords                    []Keyword          `json:"keywords,omitempty"`
 	PubLink                     *string            `json:"pubLink,omitempty"`
 	AllowComments               bool               `json:"allowComments"`
 	ArticleCopyright            *string            `json:"articleCopyRight,omitempty"`
@@ -37,37 +38,44 @@ type GetAbstractResponse struct {
 	StartPage                   *string            `json:"startPage,omitempty"`
 	EndPage                     *string            `json:"endPage,omitempty"`
 	PublicationTitle            *string            `json:"publicationTitle,omitempty"`
+	DisplayPublicationDate      *string            `json:"displayPublicationDate,omitempty"`
+	PublicationYear             *string            `json:"publicationYear,omitempty"`
 	DisplayPublicationTitle     *string            `json:"displayPublicationTitle,omitempty"`
 	PdfPath                     *string            `json:"pdfPath,omitempty"`
 	Issue                       *string            `json:"issue,omitempty"`
 	IssueLink                   string             `json:"issueLink"`
 	FormulaStrippedArticleTitle *string            `json:"formulaStrippedArticleTitle,omitempty"`
 	FundingAgencies             *FundingAgencies   `json:"fundingAgencies,omitempty"`
-	IsReadingRoomArticle        bool               `json:"isReadingRoomArticle"`
-	IsGetArticle                bool               `json:"isGetArticle"`
+	IsGiveaway                  bool               `json:"isGiveaway"`
 	IsGetAddressInfoCaptured    bool               `json:"isGetAddressInfoCaptured"`
 	IsMarketingOptIn            bool               `json:"isMarketingOptIn"`
-	PubTopics                   *[]PubTopic        `json:"pubTopics,omitempty"`
+	PubTopics                   []PubTopic         `json:"pubTopics,omitempty"`
+	ReferenceCount              *int               `json:"referenceCount,omitempty"`
 	Publisher                   *string            `json:"publisher,omitempty"`
 	IsDynamicHTML               bool               `json:"isDynamicHtml"`
 	IsFreeDocument              bool               `json:"isFreeDocument"`
+	HasStandardVersions         *bool              `json:"hasStandardVersions,omitempty"`
 	HTMLAbstractLink            string             `json:"htmlAbstractLink"`
 	IsCustomDenial              bool               `json:"isCustomDenial"`
 	IsSMPTE                     bool               `json:"isSMPTE"`
+	IsSpringer                  bool               `json:"isSpringer"`
+	IsTranslation               bool               `json:"isTranslation"`
 	IsOUP                       bool               `json:"isOUP"`
+	IsOnlineOnly                bool               `json:"isOnlineOnly"`
 	ConferenceDate              *string            `json:"conferenceDate,omitempty"`
-	IsNotDynamicOrStatic        bool               `json:"isNotDynamicOrStatic"`
 	ChronOrPublicationDate      *string            `json:"chronOrPublicationDate,omitempty"`
 	CitationCount               *string            `json:"citationCount,omitempty"`
 	IsNow                       bool               `json:"isNow"`
 	IsSAE                       bool               `json:"isSAE"`
 	IsPromo                     bool               `json:"isPromo"`
+	DateOfInsertion             *string            `json:"dateOfInsertion,omitempty"`
 	DisplayDocTitle             *string            `json:"displayDocTitle,omitempty"`
 	IsStandard                  bool               `json:"isStandard"`
 	IsConference                bool               `json:"isConference"`
 	IsProduct                   bool               `json:"isProduct"`
-	IsMorganClaypool            bool               `json:"isMorganClaypool"`
 	IsJournal                   bool               `json:"isJournal"`
+	IsLatestStandard            bool               `json:"isLatestStandard"`
+	InsertDate                  *string            `json:"insertDate,omitempty"`
 	IsBook                      bool               `json:"isBook"`
 	IsBookWithoutChapters       bool               `json:"isBookWithoutChapters"`
 	IsEarlyAccess               bool               `json:"isEarlyAccess"`
@@ -78,7 +86,6 @@ type GetAbstractResponse struct {
 	HTMLLink                    *string            `json:"htmlLink,omitempty"`
 	PersistentLink              *string            `json:"persistentLink,omitempty"`
 	IsChapter                   bool               `json:"isChapter"`
-	IsStaticHTML                bool               `json:"isStaticHtml"`
 	XploreDocumentType          *string            `json:"xploreDocumentType,omitempty"`
 	OpenAccessFlag              *string            `json:"openAccessFlag,omitempty"`
 	EphemeraFlag                *string            `json:"ephemeraFlag,omitempty"`
@@ -102,6 +109,8 @@ type GetAbstractResponse struct {
 	LastUpdate                  *string            `json:"lastupdate,omitempty"`
 	MediaPath                   *string            `json:"mediaPath,omitempty"`
 	HTMLFlagLegacy              *string            `json:"htmlFlag,omitempty"`
+	Sponsors                    []Sponsor          `json:"sponsors,omitempty"`
+	SubjectCategories           []string           `json:"subjectCategories,omitempty"`
 }
 
 type ISBN struct {
@@ -152,4 +161,9 @@ type GraphicalAbstract struct {
 	FileSize   *string `json:"fileSize,omitempty"`
 	Summary    *string `json:"summary,omitempty"`
 	Type       *string `json:"type,omitempty"`
+}
+
+type Sponsor struct {
+	Name string `json:"name"`
+	URL  string `json:"url"`
 }

@@ -22,12 +22,9 @@ type GetMetricsResponse struct {
 	GetProgramTermsAccepted  bool    `json:"getProgramTermsAccepted"`
 	AllowComments            bool    `json:"allowComments"`
 	IssueLink                string  `json:"issueLink"`
-	IsReadingRoomArticle     bool    `json:"isReadingRoomArticle"`
-	IsGetArticle             bool    `json:"isGetArticle"`
 	IsGetAddressInfoCaptured bool    `json:"isGetAddressInfoCaptured"`
 	IsMarketingOptIn         bool    `json:"isMarketingOptIn"`
 	IsPromo                  bool    `json:"isPromo"`
-	IsNotDynamicOrStatic     bool    `json:"isNotDynamicOrStatic"`
 	HTMLAbstractLink         string  `json:"htmlAbstractLink"`
 	IsCustomDenial           bool    `json:"isCustomDenial"`
 	IsSAE                    bool    `json:"isSAE"`
@@ -38,7 +35,6 @@ type GetMetricsResponse struct {
 	IsOUP                    bool    `json:"isOUP"`
 	IsNow                    bool    `json:"isNow"`
 	IsProduct                bool    `json:"isProduct"`
-	IsMorganClaypool         bool    `json:"isMorganClaypool"`
 	IsJournal                bool    `json:"isJournal"`
 	IsBook                   bool    `json:"isBook"`
 	IsBookWithoutChapters    bool    `json:"isBookWithoutChapters"`
@@ -46,8 +42,13 @@ type GetMetricsResponse struct {
 	IsEphemera               bool    `json:"isEphemera"`
 	IsConference             bool    `json:"isConference"`
 	IsChapter                bool    `json:"isChapter"`
-	IsStaticHTML             bool    `json:"isStaticHtml"`
 	IsEarlyAccess            bool    `json:"isEarlyAccess"`
+	HasStandardVersions      bool    `json:"hasStandardVersions"`
+	IsGiveaway               bool    `json:"isGiveaway"`
+	IsLatestStandard         bool    `json:"isLatestStandard"`
+	IsOnlineOnly             bool    `json:"isOnlineOnly"`
+	IsSpringer               bool    `json:"isSpringer"`
+	IsTranslation            bool    `json:"isTranslation"`
 }
 
 type Metrics struct {
@@ -58,6 +59,7 @@ type Metrics struct {
 	DOI                 *string  `json:"doi,omitempty"`
 	WosCount            *string  `json:"wos_count,omitempty"`
 	WosURL              *string  `json:"wos_url,omitempty"`
+	WosCitationCount    int      `json:"wosCitationCount"`
 	ScopusCount         *string  `json:"scopus_count,omitempty"`
 	ScopusURL           *string  `json:"scopus_url,omitempty"`
 }

@@ -38,6 +38,7 @@ type PostSearchResponse struct {
 	Facets                   []Facet      `json:"facets,omitempty"`
 	EndRecord                int          `json:"endRecord"`
 	TotalPages               int          `json:"totalPages"`
+	RecordsPerPage           int          `json:"recordsPerPage"`
 }
 
 type Record struct {
@@ -64,6 +65,7 @@ type Record struct {
 	ShowDataset             bool              `json:"showDataset"`
 	ShowVideo               bool              `json:"showVideo"`
 	Ephemera                bool              `json:"ephemera"`
+	ExternalID              *string           `json:"externalId,omitempty"`
 	GraphicalAbstract       GraphicalAbstract `json:"graphicalAbstract"`
 	VJ                      bool              `json:"vj"`
 	ShowAlgorithm           bool              `json:"showAlgorithm"`
@@ -95,6 +97,8 @@ type Record struct {
 	DisplayContentType      string            `json:"displayContentType"`
 	DocIdentifier           string            `json:"docIdentifier"`
 	IsEarlyAccess           bool              `json:"isEarlyAccess"`
+	IsImmersiveArticle      bool              `json:"isImmersiveArticle"`
+	IsOnlineOnly            bool              `json:"isOnlineOnly"`
 }
 
 type RecordAuthor struct {

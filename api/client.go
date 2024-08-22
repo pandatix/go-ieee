@@ -187,4 +187,7 @@ type UserInfo struct {
 	IsDelegatedAdmin              *bool   `json:"isDelegatedAdmin,omitempty"`
 	IsMdl                         *bool   `json:"isMdl,omitempty"`
 	IsCwg                         *bool   `json:"isCwg,omitempty"`
+	IsAcademic                    *bool   `json:"isAcademic,omitempty"`
+	IsIel                         *bool   `json:"isIel,omitempty"`
+	IsReadAndPublish              *bool   `json:"isReadAndPublish,omitempty"`
 }

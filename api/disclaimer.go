@@ -24,8 +24,6 @@ type GetDisclaimerResponse struct {
 	AllowComments               bool     `json:"allowComments"`
 	IssueLink                   string   `json:"issueLink"`
 	FormulaStrippedArticleTitle *string  `json:"formulaStrippedArticleTitle,omitempty"`
-	IsReadingRoomArticle        bool     `json:"isReadingRoomArticle"`
-	IsGetArticle                bool     `json:"isGetArticle"`
 	IsGetAddressInfoCaptured    bool     `json:"isGetAddressInfoCaptured"`
 	IsMarketingOptIn            bool     `json:"isMarketingOptIn"`
 	Publisher                   *string  `json:"publisher,omitempty"`
@@ -35,12 +33,10 @@ type GetDisclaimerResponse struct {
 	IsSAE                       bool     `json:"isSAE"`
 	IsNow                       bool     `json:"isNow"`
 	IsCustomDenial              bool     `json:"isCustomDenial"`
-	IsNotDynamicOrStatic        bool     `json:"isNotDynamicOrStatic"`
 	DisplayDocTitle             *string  `json:"displayDocTitle,omitempty"`
 	IsStandard                  bool     `json:"isStandard"`
 	HTMLAbstractLink            string   `json:"htmlAbstractLink"`
 	IsProduct                   bool     `json:"isProduct"`
-	IsMorganClaypool            bool     `json:"isMorganClaypool"`
 	IsOpenAccess                bool     `json:"isOpenAccess"`
 	IsEphemera                  bool     `json:"isEphemera"`
 	IsConference                bool     `json:"isConference"`
@@ -49,7 +45,11 @@ type GetDisclaimerResponse struct {
 	IsBook                      bool     `json:"isBook"`
 	IsBookWithoutChapters       bool     `json:"isBookWithoutChapters"`
 	IsChapter                   bool     `json:"isChapter"`
-	IsStaticHTML                bool     `json:"isStaticHtml"`
+	IsGiveaway                  bool     `json:"isGiveaway"`
+	IsLatestStandard            bool     `json:"isLatestStandard"`
+	IsOnlineOnly                bool     `json:"isOnlineOnly"`
+	IsSpringer                  bool     `json:"isSpringer"`
+	IsTranslation               bool     `json:"isTranslation"`
 	PersistentLink              *string  `json:"persistentLink,omitempty"`
 	XploreDocumentType          *string  `json:"xploreDocumentType,omitempty"`
 	IsFreeDocument              bool     `json:"isFreeDocument"`
@@ -62,4 +62,5 @@ type GetDisclaimerResponse struct {
 	ContentType                 *string  `json:"contentType,omitempty"`
 	PublicationNumber           *string  `json:"publicationNumber,omitempty"`
 	HTMLFlagLegacy              *string  `json:"htmlFlag,omitempty"`
+	HasStandardVersions         bool     `json:"hasStandardVersions"`
 }

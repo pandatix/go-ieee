@@ -30,14 +30,11 @@ type GetReferencesResponse struct {
 	PubLink                     *string     `json:"pubLink,omitempty"`
 	AllowComments               bool        `json:"allowComments"`
 	IssueLink                   string      `json:"issueLink"`
-	IsReadingRoomArticle        bool        `json:"isReadingRoomArticle"`
-	IsGetArticle                bool        `json:"isGetArticle"`
 	IsGetAddressInfoCaptured    bool        `json:"isGetAddressInfoCaptured"`
 	IsMarketingOptIn            bool        `json:"isMarketingOptIn"`
 	Publisher                   *string     `json:"publisher,omitempty"`
 	XploreDocumentType          *string     `json:"xploreDocumentType,omitempty"`
 	IsPromo                     bool        `json:"isPromo"`
-	IsNotDynamicOrStatic        bool        `json:"isNotDynamicOrStatic"`
 	HTMLAbstractLink            string      `json:"htmlAbstractLink"`
 	IsCustomDenial              bool        `json:"isCustomDenial"`
 	IsSAE                       bool        `json:"isSAE"`
@@ -49,7 +46,6 @@ type GetReferencesResponse struct {
 	IsOUP                       bool        `json:"isOUP"`
 	IsNow                       bool        `json:"isNow"`
 	IsProduct                   bool        `json:"isProduct"`
-	IsMorganClaypool            bool        `json:"isMorganClaypool"`
 	IsJournal                   bool        `json:"isJournal"`
 	IsBook                      bool        `json:"isBook"`
 	IsBookWithoutChapters       bool        `json:"isBookWithoutChapters"`
@@ -58,7 +54,6 @@ type GetReferencesResponse struct {
 	IsConference                bool        `json:"isConference"`
 	HTMLLink                    *string     `json:"htmlLink,omitempty"`
 	IsChapter                   bool        `json:"isChapter"`
-	IsStaticHTML                bool        `json:"isStaticHtml"`
 	IsEarlyAccess               bool        `json:"isEarlyAccess"`
 	PersistentLink              *string     `json:"persistentLink,omitempty"`
 	ArticleId                   *string     `json:"articleId,omitempty"`
@@ -68,14 +63,20 @@ type GetReferencesResponse struct {
 	ContentTypeDisplay          *string     `json:"contentTypeDisplay,omitempty"`
 	HTMLFlag                    *string     `json:"html_flag,omitempty"`
 	// HTMLFlagLegacy is only used by document 0. Seems to be legacy and hard-coded.
-	HTMLFlagLegacy    *string `json:"htmlFlag,omitempty"`
-	MlHTMLFlag        *string `json:"ml_html_flag,omitempty"`
-	MlTime            string  `json:"mlTime"`
-	LastUpdate        *string `json:"lastupdate,omitempty"`
-	MediaPath         *string `json:"mediaPath,omitempty"`
-	ContentType       *string `json:"contentType,omitempty"`
-	Definitions       *string `json:"definitions,omitempty"`
-	PublicationNumber *string `json:"publicationNumber,omitempty"`
+	HTMLFlagLegacy      *string `json:"htmlFlag,omitempty"`
+	MlHTMLFlag          *string `json:"ml_html_flag,omitempty"`
+	MlTime              string  `json:"mlTime"`
+	LastUpdate          *string `json:"lastupdate,omitempty"`
+	MediaPath           *string `json:"mediaPath,omitempty"`
+	ContentType         *string `json:"contentType,omitempty"`
+	Definitions         *string `json:"definitions,omitempty"`
+	PublicationNumber   *string `json:"publicationNumber,omitempty"`
+	HasStandardVersions bool    `json:"hasStandardVersions"`
+	IsGiveaway          bool    `json:"isGiveaway"`
+	IsLatestStandard    bool    `json:"isLatestStandard"`
+	IsOnlineOnly        bool    `json:"isOnlineOnly"`
+	IsSpringer          bool    `json:"isSpringer"`
+	IsTranslation       bool    `json:"isTranslation"`
 }
 
 type Reference struct {
