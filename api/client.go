@@ -136,7 +136,9 @@ func (client *IEEEClient) get(endp string, params, dst any, opts ...Option) erro
 	if err != nil {
 		return err
 	}
-	defer res.Body.Close()
+	defer func() {
+		_ = res.Body.Close()
+	}()
 
 	// Decode JSON REST response
 	return json.NewDecoder(res.Body).Decode(dst)
@@ -159,7 +161,9 @@ func (client *IEEEClient) post(endp string, params, dst any, opts ...Option) err
 	if err != nil {
 		return err
 	}
-	defer res.Body.Close()
+	defer func() {
+		_ = res.Body.Close()
+	}()
 
 	// Decode JSON REST response
 	return json.NewDecoder(res.Body).Decode(dst)
